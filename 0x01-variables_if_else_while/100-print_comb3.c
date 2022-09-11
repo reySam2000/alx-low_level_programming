@@ -2,22 +2,26 @@
 #include <stdio.h>
 
 /**
- * prints digit from 00 to 99
+ * main-prints combo of two different digits
+ * and only print the smallest combo of the two digits
  * Return: 0 if it's a success
  */
 int main(void)
 {
-	int n,m;
-	for (n = 48 ; n <= 57 ; n++)
+	int n, m;
+	for (n = 48 ; n <= 56 ; n++)
 	{
-		for (m = 48 ; m <= 57 ; m++)
+		for (m = 49 ; m <= 57 ; m++)
 		{
-			putchar(n);
-			putchar(m);
-			if (n != 57 || m != 57)
+			if (m > n)
 			{
-				putchar(',');
-				putchar(' ');
+				putchar(n);
+				putchar(m);
+				if (n != 56 || m != 57)
+				{
+					putchar(',');
+					putchar(' ');
+				}
 			}
 		}
 	}
