@@ -2,8 +2,8 @@
 #include <stdio.h>
 
 /**
- * print combo of two different digits
- * and only print the smallest combo of the two digits
+ * main - print all possible different combination of three digits
+ *
  * Return: 0 if it's a success
  */
 int main(void)
