@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * add two integers and return result
+ * _add two integers and return result
  * @x: add integer to y
  * @y: add integer to x
  * Return: addition of x and y
