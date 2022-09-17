@@ -3,6 +3,7 @@
 /**
  * main - finds and prints the largest prime factor of number
  * followed by a new line
+ *
  * Return: 0 if it's a success
  */
 
@@ -22,9 +23,8 @@ int main(void)
 		for (inc = 3 ; inc < number / 2 ; inc += 2)
 		{
 		  if (number % inc == 0)
-		    {
+
 		    number /= inc;
-		    }
 		}
 	}
 	printf("%ld\n", number);
