@@ -16,9 +16,9 @@ void puts2(char *str)
 		del++;
 	}
 
-	for (x = 0 ; x < del : x += 2)
+	for (x = 0 ; x < del ; x += 2)
 	{
-		_putchar(str[i]);
+		_putchar(str[x]);
 	}
 
 	_putchar('\n');
