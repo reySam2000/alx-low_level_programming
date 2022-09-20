@@ -28,7 +28,7 @@ int _atoi(char *s)
 		if (s[x] >= '0' && s[x] <= '9')
 		{
 			digit = s[x] - '0';
-			if (d % 2)
+			if (p % 2)
 				digit = -digit;
 			m = m * 10 + digit;
 			t = 1;
@@ -36,11 +36,11 @@ int _atoi(char *s)
 				break;
 			t = 0;
 		}
-		x++
+		x++;
 	}
 
 	if (t == 0)
 		return (0);
 
-	return (n);
+	return (m);
 }
