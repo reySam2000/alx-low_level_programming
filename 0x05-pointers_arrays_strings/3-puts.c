@@ -1,8 +1,7 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
- * _puts - return a string to stdout
+ * _puts - prints a string to stdout
  * @str: printed string pointer
  */
 
