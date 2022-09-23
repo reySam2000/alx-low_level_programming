@@ -5,6 +5,7 @@
  * @a: array to be reversed
  * @n: number of elements inside the array
  */
+
 void reverse_array(int *a, int n)
 {
 	int x, y, del;
