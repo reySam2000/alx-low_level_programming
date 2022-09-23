@@ -1,34 +1,38 @@
 #include "main.h"
 
 /**
- * *cap_string - capitalize all words in a string
- * @s: string to modify
+ * *cap_string - capitalize words in a string
+ * word separators are:space, tabulation, newline
+ * ,, ;, ., !, ?, ", (, ), {, and }
+ * @s: string pointer
  *
- * Return: the result
+ * Return: pointer to s
  */
-
 char *cap_string(char *s)
 {
-	int x, y;
+	int bount;
 
-	char wat[13] = {' ', '\t', '\n', ',', ';', '.', '!', '?', '"', '(', ')', '{', '}' };
-
-	for (x = 0 ; s[x] != '\0' ; x++)
+	/* scan through string */
+	bount = 0;
+	while (s[bount] != '\0')
 	{
-		if (x == 0 && s[x] >= 'a' && s[x] <= 'z')
-			s[x] -= 32;
-
-		for (y = 0 ; y < 13 ; y++)
+		/* if character after bount is char, capitalize it */
+		if (s[0] >= 97 && s[0] <= 122)
 		{
-			if (s[x] == wat[y])
+			s[0] = s[0] - 32;
+		}
+		if (s[bount] == ' ' || s[bount] == '\t' || s[bount] == '\n'
+				|| s[bount] == ',' || s[bount] == ';' || s[bount] == '.'
+				|| s[bount] == '.' || s[bount] == '!' || s[bount] == '?'
+				|| s[bount] == '"' || s[bount] == '(' || s[bount] == ')'
+				|| s[bount] == '{' || s[bount] == '}')
+		{
+			if (s[bount + 1] >= 97 && s[bount + 1] <= 122)
 			{
-				if (s[x + 1] >= 'a' && s[x + 1] <= 'z')
-				{
-					s[x + 1] -= 32;
-				}
+				s[bount + 1] = s[bount + 1] - 32;
 			}
 		}
+		bount++;
 	}
-
 	return (s);
 }
