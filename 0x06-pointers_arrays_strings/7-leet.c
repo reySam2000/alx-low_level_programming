@@ -2,31 +2,27 @@
 
 /**
  * *leet - encodes a string to 1337
- * @s: pointer to string
+ * @s: string to be encoded
  *
- * Return: pointer to s
+ * Return: the result
  */
 char *leet(char *s)
 {
 	int wap, kink;
-	char letters[] = "aAeEoOtTlL";
-	char numb[] = "4433007711";
 
-	/* scan string */
-	wap = 0;
-	while (s[wap] != '\0')
-		/* check if letters is found */
+	char *lett = "aAeEoOtTlL";
+	char *numb = "4433007711";
+
+	for (wap = 0 ; s[wap] != '\0' ; wap++)
 	{
-		kink = 0;
-		while (kink < 10)
+		for (kink = 0 ; kink < 10 ; kink++)
 		{
-			if (letters[kink] == s[wap])
+			if (s[wap] == lett[kink])
 			{
 				s[wap] = numb[kink];
 			}
-			kink++
 		}
-		wap++
 	}
+
 	return (s);
 }
