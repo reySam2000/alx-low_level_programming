@@ -6,6 +6,8 @@
  * two diagonals of a square matrix of integers
  * @a: square matrix from which we print the diagonal sum
  * @size: matrix size
+ *
+ * Return: void
  */
 
 void print_diagsums(int *a, int size)
