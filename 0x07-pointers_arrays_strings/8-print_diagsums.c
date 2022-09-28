@@ -12,18 +12,17 @@
 
 void print_diagsums(int *a, int size)
 {
-	int x;
-
-	unsigned int dom1, dom2;
-
-	dom1 = 0;
-	dom2 = 0;
+	int x, y, z, m = 0, n = 0;
 
 	for (x = 0 ; x < size ; x++)
 	{
-		dom1 += a[(size * x) + x];
-		dom2 += a[(size *(x + 1)) - (x + 1)];
+		z = (x * size) + x;
+		m += *(a + z);
 	}
-
-	printf("%d, %d\n", dom1, dom2);
+	for (y = 0 ; y < size ; y++)
+	{
+		z = (y * size) + (size - 1 - y);
+		n += *(a + z);
+	}
+	printf("%d, %d\n", m, n);
 }
