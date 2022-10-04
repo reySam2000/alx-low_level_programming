@@ -11,7 +11,7 @@
 
 char *str_concat(char *s1, char *s2)
 {
-	char *s3;
+  char *s3;
 	unsigned int x = 0, y = 0, cum1 = 0, cum2 = 0;
 
 	while (s1 && s1[cum1])
@@ -41,7 +41,7 @@ char *str_concat(char *s1, char *s2)
 		{
 			s3[x] = s2[y];
 			x++;
-			y++;
+	        	y++;
 		}
 	}
 	s3[x] = '\0';
