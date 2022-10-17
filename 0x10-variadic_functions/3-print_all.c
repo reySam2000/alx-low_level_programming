@@ -1,90 +1,49 @@
 #include "variadic_functions.h"
 
 /**
- * format_char - formats character
- * @separator: string separator
- * @sa: argument pointer
- */
-
-void format_char(char *separator, va_list sa)
-{
-	printf("%s%c", separator, va_arg(sa, int));
-}
-
-/**
- * format_int - formats integer
- * @separator: string operator
- * @sa: argument pointer
- */
-
-void format_int(char *separator, va_list sa)
-{
-	printf("%s%d", separator, va_arg(sa, int));
-}
-
-/**
- * format_float - formats float
- * @separator: string separator
- * @sa: argument pointer
- */
-
-void format_float(char *separator, va_list sa)
-{
-	printf("%s%f", separator, va_arg(sa, double));
-}
-
-/**
- * format_string - formats string
- * @separator: string separator
- * @sa: argument pointer
- */
-
-void format_string(char *separator, va_list sa)
-{
-	char *str = va_arg(sa, char *);
-
-	switch ((int)(!str))
-	{
-		case 1:
-		str = "(nil)";
-
-		printf("%s%s", separator, str);
-	}
-}
-
-/**
- * print_all - prints anything
- * @format: format string
+ * print_all - a function that prints anything
+ * @format: arguments passed to function
  */
 
 void print_all(const char * const format, ...)
 {
-	int i = 0, j;
-	char *separator = "";
+	int i = 0;
+	char *str, *sep = "";
+
 	va_list sa;
-	token_t tokens[] = {
-		{"c", format_char},
-		{"i", format_int},
-		{"f", format_float},
-		{"s", format_string},
-		{NULL, NULL}
-	};
 
 	va_start(sa, format);
-	while (format && format[i])
+
+	if (format)
 	{
-		j = 0;
-		while (tokens[j].token)
+		while (format[i])
 		{
-			if (format[i] == tokens[j].token[0])
+			switch (format[i])
 			{
-				tokens[j].f(separator, sa);
-				separator = ", ";
+				case 'c':
+					printf("%s%c", sep, va_arg(sa, int));
+					break;
+				case 'i':
+					printf("%s%d", sep, va_arg(sa, int));
+					break;
+				case 'f':
+					printf("%s%f", sep, va_arg(sa, double));
+					break;
+				case 's':
+					str = va_arg(sa, char *);
+					if (!str)
+						str = "(nil)";
+					printf("%s%s", sep, str);
+					break;
+				default:
+					i++;
+					continue;
 			}
-			j++;
+			sep = ", ";
+			i++;
 		}
-		i++;
 	}
+
 	printf("\n");
 	va_end(sa);
 }
